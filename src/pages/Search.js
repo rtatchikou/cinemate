@@ -3,15 +3,13 @@ import { Card } from "../components";
 import { useFetch } from "../hooks/useFetch";
 import { useTitle } from "../hooks/useTitle";
 
-import { useEffect } from "react";
-
 export const Search = ({ apiPath }) => {
   const [searchParams] = useSearchParams();
   const queryTerm = searchParams.get("q");
 
   const { data: movies } = useFetch(apiPath, queryTerm);
 
-  const pageTitle = useTitle(`Search result for ${queryTerm}`);
+  useTitle(`Search result for ${queryTerm}`);
 
   return (
     <main>
